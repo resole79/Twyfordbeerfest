@@ -1,0 +1,345 @@
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<title>TBF - Twylford Beer Festival</title>
+		<link rel="stylesheet" href="../static/css/bootstrap.css">
+		<link rel="stylesheet" href="../static/css/css.css">
+	</head>
+	
+	<body>
+		<div id="main">
+			<div id="container">
+			
+    			<!-- start navigate -->
+				<div id="navigate" class="navbar navbar-expand-lg border-bottom">
+    				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+    				</button>
+  					<div class="collapse navbar-collapse" id="navbarNav">
+     					<ul class="navbar-nav">
+     						<li class="nav-item">
+					          <a class="nav-link" href="../index.html">Home</a>	
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="./beer.html">Beer</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="./cider.html">Cider</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="#">Spirits</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="#">Food</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="#">Entertainment</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="#">Sponsors</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="./contact.html">Contact</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link active" aria-current="page" href="#">Volunteer</a>
+     						</li>
+     						<!--<li class="nav-item">
+        						<a class="nav-link" href="#">Privacy</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="./templates/map.html">Map</a>
+     						</li>-->
+     					</ul>
+    				</div>
+    			</div>
+    			<!-- finish navigate -->
+    			
+    			<!-- start header -->
+  				<div id="header" class="border-bottom">
+					<div class="row align-items-start">
+					
+						<!-- logo section -->	
+    					<div class="col-lg-3">
+    						<div class="container-lg">
+      						<a href="#">
+        							<img src="../images/twylford_beer_festival_logo.png"  class="img-fluid"  width="250px">
+      						</a>        					
+							</div>
+    					</div>
+						<!-- end logo section -->
+						
+
+    					<div class="col-lg-9">
+							<div class="row">
+							
+								<!-- info & book section -->
+    							<div class="col-lg-8">
+									<p class="fs-1 fw-bold p-1">Twylford Beer Festival 2025</p>
+        							<p class="fs-6 fst-italic p-1">Thur 5th June 6pm - 11pm | Fri 6th June 12pm - 11pm | Sat 7th June 12pm- 10pm</p>
+									<div class="border m-2">        							
+        							<p class="fs-6 fst-italic text-center p-1 bg-body-tertiary border-bottom">Please purchase your tickets here for the Festival </p>
+									<p class="text-center p-1">
+										<a href="#">
+  											<img class="img-fluid" alt="Book now" src="../images/bookNow-black-medium.png">
+										</a>
+									</p>
+									</div>
+ 								</div>
+								<!-- end info & book section -->
+								
+								<!-- maillist section -->
+      						<div class="col-lg-4">
+        							<form class="p-2">
+										<p class="fs-6">Please add your email to our mailing list. </p>
+										<div class="mb-3">
+  											<label for="MailListEmail" class="form-label">Email address</label>
+  											<input type="email" class="form-control" id="MailListEmail" placeholder="name@example.com">
+										</div>
+										<div class="mb-3">
+  											<label for="MailListCompleteName" class="form-label">Complete Name</label>
+  											<input type="text" class="form-control" id="MailListCompleteName" placeholder="J. Doe">
+										</div>
+										<button class="w-100 btn btn-lg btn-outline-primary" type="submit">Send us!</button>
+        							</form>
+      						</div>
+								<!-- end maillist section -->
+
+    						</div>
+						</div>  
+															
+					</div>
+					
+					<div class="border-bottom bg-body-tertiary p-2">
+						<p class="fs-4">The official page of Twylford Beer Festival, organised by Ian Wisdom</p> 
+					</div>
+					
+				</div>
+    			<!-- end header -->
+    			
+    			<!-- start body -->    			
+				<div id="body">
+					<div class="row">		
+						<div class="col-lg-6">
+							<p class="fs-3">Interested in volunteering at our festival?</p>
+							<p class="fs-4">Please fill in the form adding the areas you feel you can help with and we will email you. <br>
+							As a valued member of the team you have access to all areas and can try any of the beers and other drinks we have on offer. <br>
+							As an added bonus you will aslo get free entry to the “Crazy Diamond” Gig held on Thursday 5th June. <br>
+							Everybody gets fed and you will have plenty of breaks throughout the periods you are at work to enjoy a beer and watch the entertainment. <br>
+							If you have any special skills then please let us know when we contact you. <br>
+							Do not worry if you have not helped out at a festival before - we are a very friendly team and will mentor you. <br>
+							Not poured a pint before? <br>
+							Not a problem we will show you  how!</p>
+							<p class="fs-4 fw-bold text-end">I look forward to chatting with you.</p>
+							<p class="fs-4 fw-bold text-end">Ian Wisdom</p>
+						</div>
+						<div class="col-lg-6">
+<div class="formstyle">
+	<form id="volunteerform" action="volunteer.php" method="post" target="_self">
+		
+		<div class="htext">Please add your details</div>
+		<div class="notetext">If you have previously registered, add Your email and click 'Find Me'..</div>
+		<br>
+
+		<input type="hidden" id="action" name="action" value="saverecord">
+
+		
+		<input type="hidden" id="id" name="id" value="0">
+	
+		<table class="txttable">
+			<tbody><tr>
+				<td class="tdfirstcol">
+					Email&nbsp;
+				</td>
+				<td colspan="2">
+					<input type="text" name="Email" value="" id="Email" placeholder="Please add Your Email" size="20">
+					<span class="reply"> Please add Your Email. 
+					<button class="btn btn btn-primary" onclick="checkemail()">Find Me </button>
+					</span>
+				</td>
+
+			</tr>				
+			<tr>
+				<td>
+					Title&nbsp;
+				</td>
+				<td colspan="2">
+					<input type="text" name="Title" value="" id="Title" placeholder="Mr, Mrs etc." size="5">
+					
+				</td> 
+			</tr>	
+			<tr>
+				<td>
+					First Name
+				</td>
+				<td colspan="2">
+					<input type="text" name="Firstname" value="" id="Firstname" placeholder="Your First name" size="20">
+					<span class="reply"> Please add your first name. </span> 
+				</td>
+		
+			</tr>
+			<tr colspan="2">
+				<td>Nickname&nbsp;</td>
+				<td>
+					<input type="text" name="Nickname" value="" id="Nickname" placeholder="Your Preferred name" size="20">
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					Last name&nbsp;
+				</td>
+				<td colspan="2">
+					<input type="text" name="Lastname" value="" id="Lastname" placeholder="Your Last Name" size="20">
+					 <span class="reply">Please add your Last name. </span> 
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					Mobile&nbsp;
+				</td>
+				<td colspan="2">
+					<input type="text" name="Mobile" value="" id="Mobile" placeholder="Your mobile no." size="20">
+					<span class="reply"> Please add your mobile phone no. </span> 
+				</td>
+			</tr>	
+
+			<tr>
+				<td nowrap="">
+					Tee Shirt Size&nbsp;
+				</td>
+				<td colspan="2">
+					<input type="text" name="Teeshirtsize" value="" id="Teeshirtsize" placeholder="S,M,L " size="4">
+					<span class="reply">  </span> 
+				</td><td>
+			</td></tr>		
+		</tbody></table>
+<br>
+<div style="float: left; width:100%">
+<span width="100%" style="float: left; font-family:'Impact'">Where are you comfortable working?&nbsp;&nbsp;&nbsp;&nbsp;</span>
+</div>
+
+		<table class="chktable">
+			<tbody><tr>
+				<td>Build&nbsp;&nbsp;</td>
+				<td>Takedown&nbsp;</td>
+				<td>Bar&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td>Reception&nbsp;</td>
+				<td>Steward&nbsp;</td>
+				<td>Litter Pick&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="80"><input type="checkbox" id="chkBuild" name="chkBuild"></td>
+				<td width="80"><input type="checkbox" id="chkTakedown" name="chkTakedown"></td>
+				<td width="80"><input type="checkbox" id="chkBar" name="chkBar"></td>
+				<td width="80"><input type="checkbox" id="chkReception" name="chkReception"></td>
+				<td width="80"><input type="checkbox" id="chkSteward" name="chkSteward"></td>
+				<td width="80"><input type="checkbox" id="chkLitterpick" name="chkLitterpick"></td>
+			</tr>
+			<tr>
+				<td colspan="6" nowrap=""><div class="reply"> Please add where you would prefer to work </div></td>
+			</tr>
+			
+		</tbody></table>
+<br>
+
+	<div style="float: left; width:100%">
+	<span width="100%" style="float: left; font-family:'Impact'">Availability&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	</div>
+
+		<table class="chktable">
+		
+			<tbody><tr>
+				<th>Date&nbsp;&nbsp;&nbsp;</th>
+				<th>Morning&nbsp;</th>
+				<th>Afternoon&nbsp;</th>
+				<th>Evening&nbsp;</th>
+			</tr>
+			<tr>
+				<td>Wed 4th June (Set up)</td>
+				<td><input type="checkbox" id="chkbuildMorning" name="chkbuildMorning"></td>
+				<td><input type="checkbox" id="chkbuildAfternoon" name="chkbuildAfternoon"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Thur 5th June</td><td>&nbsp;</td><td>&nbsp;</td>
+				<!--
+				<td><input type="checkbox" id="chkfirstdayMorning" name="chkfirstdayMorning"   /></td>
+				<td><input type="checkbox" id="chkfirstdayAfternoon" name="chkfirstdayAfternoon"   /></td> -->
+				<td><input type="checkbox" id="chkfirstdayEvening" name="chkfirstdayEvening"></td>
+				
+			</tr><tr>
+				<td>Fri 6th June</td>
+				<td><input type="checkbox" id="chkseconddayMorning" name="chkseconddayMorning"></td>
+				<td><input type="checkbox" id="chkseconddayAfternoon" name="chkseconddayAfternoon"></td>
+				<td><input type="checkbox" id="chkseconddayEvening" name="chkseconddayEvening"></td>
+			</tr>
+			<tr>	
+				<td>Sat 7th June</td>
+				<td><input type="checkbox" id="chkthirddayMorning" name="chkthirddayMorning"></td>
+				<td><input type="checkbox" id="chkthirddayAfternoon" name="chkthirddayAfternoon"></td>
+				<td><input type="checkbox" id="chkthirddayEvening" name="chkthirddayEvening"></td>
+			</tr>		
+			<tr>
+				<td>Sun 9th June (Takedown)</td>
+				<td><input type="checkbox" id="chktakedownMorning" name="chktakedownMorning"></td>
+				<td><input type="checkbox" id="chktakedownAfternoon" name="chktakedownAfternoon"></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td colspan="3" nowrap=""><div class="reply" id="resultavailability"> Please add your availability.. </div></td>
+			</tr>
+			<tr>
+				<td colspan="3">&nbsp;</td>
+			</tr>
+		</tbody></table>
+
+		<table class="txttable">
+			<tbody><tr>
+				<td>
+					<button class="btn btn-lg btn-outline-primary" type="submit">Save</button>
+					<input type="image" src="../images/submitbutton.png" alt="Submit" onmousedown="this.src='../images/submitbuttonclick.png';" onclick="submitdata()" ;="" onmouseout="this.src='../images/submitbutton.png';">				
+				</td>
+			</tr>
+			<tr>	
+				<td nowrap=""><div id="result" class="reply"></div></td>
+			</tr>		
+		</tbody></table>
+
+	</form>
+	</div>
+						</div>					    			
+					</div>
+				</div>
+				<!-- end body -->
+				
+				<!-- start footer -->
+				<div id="footer" class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    				<div class="col-md-4 d-flex align-items-center">
+      				<a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+							<img class="bi" src="../images/twylford_beer_festival_logo.png" class="img-fluid"  width="50">
+      				</a>
+      				<span class="mb-3 mb-md-0 text-body-secondary">© 2010 TBF - Twylford Beer Festival</span>
+    				</div>
+
+    				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      				<li class="ms-3"><a class="text-body-secondary" href="https://x.com/TwyfordBeerFest"><img src="../images/x_logo.png" class="bi" width="50"></a></li>
+      				<li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ItsTBF/"><img src="../images/fb_logo.png" class="bi" width="50"></a></li>
+    				</ul>
+  				</div>
+  				<!-- end footer -->
+			</div>
+			<!-- end container -->	
+				
+		</div>
+		<!-- end main -->
+	
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	
+	</body>
+</html>
+

@@ -1,0 +1,87 @@
+body {
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	/*background: #FAFAFA;*/
+	color: #777;
+	font-size: 0.875em;
+	line-height: 1.6;
+}
+
+:root {
+	--topbg: white;
+	--primary: #e32125;
+	--pale: #FFCCCC;
+}
+
+#main, #content, #navigate, #header, #footer, body
+{
+	width: 98%;
+	margin: 2em auto 2em;
+}
+
+#container
+{
+	width: 80%;
+	margin: 2em auto 2em;
+}
+
+.carousel-img {
+	border-radius: 15px;
+	margin: 2px;
+	
+}
+
+.topmenu {
+	/*position: fixed;*/
+	top: 0;
+	width: 100%;
+	background: var(--pale);
+	background: linear-gradient(180deg, #fff 0%, var(--pale) 100%);
+	z-index: 100;
+	border-bottom: 2px solid var(--primary);
+}
+    h1,
+    h2,
+    h3 {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+    .brewery > h2 {
+      padding: 0.25rem;
+      background: var(--pale);
+    }
+
+    .drink {
+      margin: 0.25rem;
+      margin-bottom: 1rem;
+    }
+    header.beer {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 0.25rem;
+    }
+    .icon {
+      padding-top: 2px;
+      align-self: center;
+    }
+    p .icon img {
+      width: 16px;
+      height: 16px;
+    }
+    .icon img {
+      width: 24px;
+      height: 24px;
+    }
+    .taste {
+      flex-grow: 1;
+    }
+    .style + .name {
+      flex-grow: 1;
+    }
+    .abv::after {
+      content: "%";
+    }
+    h3.name {
+      color: var(--primary);
+    }

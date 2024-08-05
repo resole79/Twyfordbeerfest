@@ -1,0 +1,1571 @@
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<title>TBF - Twylford Beer Festival</title>
+		<link rel="stylesheet" href="../static/css/bootstrap.css">
+		<link rel="stylesheet" href="../static/css/css.css">
+	</head>
+	
+	<body>
+		<div id="main">
+			<div id="container">
+			
+    			<!-- start navigate -->
+				<div id="navigate" class="navbar navbar-expand-lg border-bottom">
+    				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+    				</button>
+  					<div class="collapse navbar-collapse" id="navbarNav">
+     					<ul class="navbar-nav">
+     						<li class="nav-item">
+					          <a class="nav-link" href="../index.html">Home</a>	
+     						</li>
+     						<li class="nav-item">
+					          <a class="nav-link active" aria-current="page" href="#">Beer</a>	
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="./cider.html">Cider</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="#">Spirits</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="#">Food</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="#">Entertainment</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="#">Sponsors</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="./contact.html">Contact</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="./volunteer.html">Volunteer</a>
+     						</li>
+     						<!--<li class="nav-item">
+        						<a class="nav-link" href="#">Privacy</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="./templates/map.html">Map</a>
+     						</li>-->
+
+     					</ul>
+    				</div>
+    			</div>
+    			<!-- finish navigate -->
+    			
+    			<!-- start header -->
+  				<div id="header" class="border-bottom">
+					<div class="row align-items-start">
+					
+						<!-- logo section -->	
+    					<div class="col-lg-3">
+    						<div class="container-lg">
+      						<a href="#">
+        							<img src="../images/twylford_beer_festival_logo.png"  class="img-fluid"  width="250px">
+      						</a>        					
+							</div>
+    					</div>
+						<!-- end logo section -->
+						
+
+    					<div class="col-lg-9">
+							<div class="row">
+							
+								<!-- info & book section -->
+    							<div class="col-lg-8">
+									<p class="fs-1 fw-bold p-1">Twylford Beer Festival 2025</p>
+        							<p class="fs-6 fst-italic p-1">Thur 5th June 6pm - 11pm | Fri 6th June 12pm - 11pm | Sat 7th June 12pm- 10pm</p>
+									<div class="border m-2">        							
+        							<p class="fs-6 fst-italic text-center p-1 bg-body-tertiary border-bottom">Please purchase your tickets here for the Festival </p>
+									<p class="text-center p-1">
+										<a href="#">
+  											<img class="img-fluid" alt="Book now" src="../images/bookNow-black-medium.png">
+										</a>
+									</p>
+									</div>
+ 								</div>
+								<!-- end info & book section -->
+								
+								<!-- maillist section -->
+      						<div class="col-lg-4">
+        							<form class="p-2">
+										<p class="fs-6">Please add your email to our mailing list. </p>
+										<div class="mb-3">
+  											<label for="MailListEmail" class="form-label">Email address</label>
+  											<input type="email" class="form-control" id="MailListEmail" placeholder="name@example.com">
+										</div>
+										<div class="mb-3">
+  											<label for="MailListCompleteName" class="form-label">Complete Name</label>
+  											<input type="text" class="form-control" id="MailListCompleteName" placeholder="J. Doe">
+										</div>
+										<button class="w-100 btn btn-lg btn-outline-primary" type="submit">Send us!</button>
+        							</form>
+      						</div>
+								<!-- end maillist section -->
+
+    						</div>
+						</div>  
+															
+					</div>
+					
+					<div class="border-bottom bg-body-tertiary p-2">
+						<p class="fs-4">The official page of Twylford Beer Festival, organised by Ian Wisdom</p> 
+					</div>
+					
+				</div>
+    			<!-- end header -->
+    			
+    			<!-- start body -->    			
+				<div id="body">
+      <template x-for="(beers, supplier) in beersByBrewer">
+        <section class="brewery">
+          <h2 x-text="supplier"></h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template>
+        </section>
+      </template><section class="brewery">
+          <h2 x-text="supplier">Ascot</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Anastasia Stout</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Smooth and creamy</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Gold Cup</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Delicious session cross-over IPA, with frisky citrus and pine flavours and has a light golden color with a pleasant lingering bitterness.
+gluten-free</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Starting Gate</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A terrific copper-coloured Session Bitter packed with refreshing blackcurrant + lemon aromas. Significant flavours beyond those usually found in a session bitter. The perfect pint to get you out of the gate.</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Ashton Brewery</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Gold</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.5</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Our signature pale ale made with plenty of big American hops giving tropical citrus fruit flavours and a crisp bitter finish.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Mosaic</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.4</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Well balanced fruity pale ale heavily hopped with US Mosaic giving mango, citrus, lemon and pine aromas.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Shot In The Dark</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.6</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A traditional porter made with dark roast malt, English Fuggles and Goldings hops and an addition of quality ground coffee.
+CONTAINS LACTOSE</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Bond Brews</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Bengal Tiger</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.3</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">AWARD WINNING Bengal Tiger is an English Style India Pale Ale. Brewed with a nod to the original English style IPA with 2 types of malted barley whilst East Kent Golding hops provides the Bitterness, Goldings for aroma and dry-hopped for good measure.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/amber.svg" alt="amber">
+                </span>
+                <h3 class="name" x-text="beer.name">Best Of British</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Brewed using three blends of malted barley and wheat to provide a full bodied, rich copper coloured, nutty and biscuity session bitter. Two whole leaf hop varieties are used to provide a good bitter-sweet balance and a subtle fruity aroma, giving way to a lingering chocolate malty finish.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Railway Porter</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.5</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Brewed using five blends of malted barley and wheat to carry a deep brown colour. While two varieties of hop hold a low bitterness level followed by a hint of rich, dark fruit.</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Delphic Brewing</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/amber.svg" alt="amber">
+                </span>
+                <h3 class="name" x-text="beer.name">Level Crossing</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.2</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A traditional English Best Bitter with fruity, grassy and blackcurrant notes from UK grown Cascade hops. With a full bodied malty backbone. Made from all English ingredients!</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Worlds End</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.6</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A Tradtional Pale Ale, but brewed using a couple of firm favourite, exciting hop varieties. German Huell Melon teams up with US-grown Citra for a cocktail of citrus fruit and resinous pine flavours. This mid-strength beer has a firm bitterness and a soft orange hue from a little bit of Vienna malt in the mash.</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Delphic Brewing - Key Keg</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Thats The Way She Gose Buddy</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.8</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Brewed in collaboration with Berkshire Beer Box: Lemon and Sicilian Sea Salt, along with the finest Citra hops and a touch of coriander seeds, this beer boasts a bright, light and effervescent mouthfeel. Sea Salt provides a subtle but important depth. Perfect for outdoor gatherings with friends and family. It pairs well with a wide variety of dishes, from grilled fish to light salads and everything in between. </section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Disruption</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Chaos More Chaos</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">NEPA - Exotic fruit punch bowl!
+CIBA Champion Pale Winner 2023.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/amber.svg" alt="amber">
+                </span>
+                <h3 class="name" x-text="beer.name">Twyford Orchid Ale</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.2</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Our own beer created by our competition winner Kevin.
+A modern Best Bitter.
+A summery bitter that has subtle elements of citrus, orange peel and red berries.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Wired For Sound</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Unfined Session IPA</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Disruption - Key Keg</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Talk To Your Alchemist</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">6.5</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Key Lime Pie Sour. A wonderful biscuity undertone along with creamy lactose gives a fantastic base for the  tart lime that shows this beer is worth its weight in gold. CONTAINS LACTOSE</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Tepu</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">2.8</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Lower in alcohol but full on flavour wise.
+An easy drinking golden ale.
+Liberally hopped with Motueka in the boil then more Motueka and a touch of Citra are added to give a hint of lime and citrus flavours. </section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">The Devil Wears Lager </h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.9</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Mellow and smooth with a subtle honey and fruit kiss. SIBA Gold Winner</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Double Barrelled Keg</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Everyone</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.2</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Double Dry-Hopped Pale Ale was brewed with our friends at CountMeInCollective,a new training brewery in Reading, supporting people with learning difficulties and those who are neurodivergent in gaining career experience within the industry</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/amber.svg" alt="amber">
+                </span>
+                <h3 class="name" x-text="beer.name">Parka</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.5</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">SIBA Gold Winner! Our flagship hazy pale ale is full of vibrant and juicy citrus notes from the all Citra dry hop. Light and refreshing, it’s super sessionable with tropical fruit and grapefruit notes – all wrapped up with a soft bitterness.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Passion Fruit Martini</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.5</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Fruited Kettle Sour</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Raspberry Ripple</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.9</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Kettle sour packed full of Rasperries and fresh Vanilla -fruity, smooth and luxurious.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Scoop</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Scoop is a sessionable yet punch pale, brewed with exclusive, experimental hops form New Zealand, thanks to our friends at Freestyle hops. We’ve paired Maui Nelson Kief with Vivid Nelson Sauvin Cryo and El Dorado to bring lush tropics, with big juicy pineapple, grape and stone fruit notes. </section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Elusive</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Bales</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Golden / Blonde Ale.
+Unfined and Vegan</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Flintlock</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.5</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Pale Ale with NZ Hops.
+Unfined and Vegan</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Oberon</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.8</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Vermont Pale Ale.
+Unfined and Vegan
+Citrus and Stone fruits</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Flowerpots Brewery</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/amber.svg" alt="amber">
+                </span>
+                <h3 class="name" x-text="beer.name">Busters Best</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.2</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Full bodied, nutty and biscuit, with a sweet and smooth bitterness.  Bronze in colour with a creamy head.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Cheriton Porter</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.2</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A complex grain bill of dark malts and traditional British hops create an easy drinking classic Porter.  With a creamy coffee aroma and roasted chocolate maltiness, a hint of sweetness shines through to provide a dry finish.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">IPA</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">6.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Smooth any full of flavour. A proper IPA!</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Perridge Pale</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">3.6</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Perridge Pale is a blend of some of Hampshire’s finest low colour malted barley with a gentle wheat malt, paired with six hop varieties from Britain and North America. Light straw in colour, with a balmy aroma and subtle twist of citrus and fruit, the award winning Perridge Pale is crisp and refreshing yet intriguing with a perfect clean finish.</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Hardline Brewery</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Another Midnight</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.2</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Prepare your taste buds for a burst of juiciness! Featuring late hop additions and a generous dry hop. Savour the massive aromas of citrus, grapefruit, and passion fruit that harmoniously balance with a touch of bitterness.
+Vegan and Gluten Free</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/amber.svg" alt="amber">
+                </span>
+                <h3 class="name" x-text="beer.name">Boots Or Hearts</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">3.4</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Best Bitter.
+Vegan and Gluten Free</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Fully Complete</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.2</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Experience the boldness of an IPA without compromising on gluten, carbs, or calories. Fully Completely is our prized gluten-free, low-carb, low-calorie IPA. It delivers a satisfyingly aromatic and flavourful punch without overwhelming your palate.
+Vegan and Gluten Free.</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Longdog</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Black Crow</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.5</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A strong Dark Mild – smooth and rounded with a touch of smoke. Made with locally grown Fuggles hops from the Hampton Estate in Puttenham.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Golden Poacher</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">3.9</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Golden session ale; zesty, with subtle citrus. Well balanced and refreshing.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Lamplight Porter</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">An authentic London Porter – rich, chocolate &amp; coffee notes. Multi-award winning.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/amber.svg" alt="amber">
+                </span>
+                <h3 class="name" x-text="beer.name">Royal Corgi</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.2</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Rich amber English premium best bitter, with a dry biscuity finish</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Mysterious Brewing</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Blessed</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.2</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A crisp and easy going pale ale showcasing fruity Cyro and Simcoe hops. This beer pours with a golden hue thanks to its blend of cara and crystal malts with flavours of peach, lemon and lime tropical fruits and a clean finish.
+</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Dark Side</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.5</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">This black IPA is built on a classic Cascadian black base, backed with more tropical hops (including Centennial, Simcoe and Citra), nestling beneath the soft light roasted background. Stone fruits and citrus flavours balanced within the darkness!</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Pimms</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/amber.svg" alt="amber">
+                </span>
+                <h3 class="name" x-text="beer.name">By The Glass</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.6</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Enjoy a glass with all the trimmings!</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Rebellion</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Overthrow</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.3</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">An easy drinking, well balanced pale
+ale with citrus and floral notes and a
+pleasing hoppy aroma of grapefruit
+and tropical fruits.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/amber.svg" alt="amber">
+                </span>
+                <h3 class="name" x-text="beer.name">Roasted Nuts</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.6</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A deep ruby coloured beer with intense malt and hop character.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Zebedee</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.7</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Pale and Hoppy</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Rebellion Keg</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Black</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.2</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Rich, Dark &amp; Easy Drinking.
+With the addition of cocoa nibs and
+Cascade hops to the brew our nitro
+stout is rich, dark and easy-drinking </section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Lager</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.4</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">An authentic lager brewed using the finest specialist malt and yeast. The key to its delicate clean taste is a cold fermentation and a long, slow maturation which allows the subtle flavours to slowly develop. Continental hops add a light floral element and gentle bitterness, helping to create an extremely crisp, refreshing and drinkable character.</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Stardust Brewery</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Choco</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.8</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">This chocolate stout is sure to please all the sweet-toothed lovers. The soft and full mouthfeel combined with the dark chocolate and roasty flavours make this beer very moreish.
+
+</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Easy Pale Simcoe</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">3.8</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Fancy an easy going pale ale? That’s exactly what this subtle blend of American hops is all about</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/amber.svg" alt="amber">
+                </span>
+                <h3 class="name" x-text="beer.name">English Bitter</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">This beer is blended to bring out the very best of traditional British malt and hop flavours. The raised malt profile unlocks notes of roasted caramel, which mingle with classic hop aromas.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Just Stout</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.2</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A dry Irish Stout. Serves black in colour and packs plenty of caramel and roast malt flavour. A sessionable stout with a thick and creamy mouthfeel.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">PK3</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.6</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">This beer packs a full hop punch! By adding five hop varieties throughout the brew, the beer carries a complex hop profile. Tropical, fruity, spicy...it’s got them all.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/amber.svg" alt="amber">
+                </span>
+                <h3 class="name" x-text="beer.name">Red Rocket</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.4</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">British roasted malts and hops are combined to make this red session ale. Moderately low bitterness allows the array of malt flavours to come forward.</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Stardust Brewery Keg</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Saaz Pilsner</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.5</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Easy drinking classic Czech style Pilsner. Using the traditional Saaz hop with a subtle blend of East Kent Goldings, this beer is one flavourful, refreshing Pilsner. Find this on the craft keg bar.</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">SVB</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/amber.svg" alt="amber">
+                </span>
+                <h3 class="name" x-text="beer.name">Best Of Both Worlds</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.1</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A combination of British and NZ hops gives this beer a satisfying body with a refreshing flavour and a gentle bitter finish.
+English Admiral, NZ Pacific Jade, and just a dash of chocolate malt.
+This is the first of the 10th Anniversary re-brews.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Chef's Chocolate Salty Balls</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">6.3</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Chef's Salty Chocolate Balls (Shadow Stout) is a mouthful of rich chocolate and caramel Stout, and a velvety mouth feel.
+Brewed especially for the Festival.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Motueka</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.3</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Single-hop brew using this delicious floral, New Zealand Motueka hop.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Strange Eden</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">6.5</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">An English IPA with decent bitterness and plenty of fruity flavour.
+
+</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Summer Heaven</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">German, English and New Zealand hops blend with a rich malty base for a perfect summer beer</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Windsor And Eton</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Conqueror</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Black IPA, Dark malt base, with long hoppy finish</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Independence</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Vigorously hopped with American Hops from the Yakima Valley including Cascade giving a pleasant flowery  and Spicy citrus like aroma.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Knight Of The Garter</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">3.8</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A straw-coloured easy drinking Golden Ale with a distinctive fresh citrus hop thanks to the use of American Amarillo whole leaf hop with its gorgeous grapefruit aroma.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Kohinoor</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.5</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">Spicy ginger IPA, with Cardomon, Coriander and Jasmine petal oil.</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Windsor And Eton Keg</h2>
+          <template x-for="beer in beers">
+            <div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour">
+                </span>
+                <h3 class="name" x-text="beer.name"></h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="beer.abv"></span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/black.svg" alt="black">
+                </span>
+                <h3 class="name" x-text="beer.name">Storm</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">4.2</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A London Dry Stout that's smooth, creamy and velvety; with notes of cold brew coffee and bitter dark chocolate.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <span class="style icon">
+                  <img :src="`../images/${beer.colour}.svg`" :alt="beer.colour" src="../images/yellow.svg" alt="yellow">
+                </span>
+                <h3 class="name" x-text="beer.name">Treason</h3>
+                <span class="icon" @click="$store.state.star(beer.id)">
+                  <img :src="$store.state.starred[beer.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(beer.id)">
+                  <img :src="$store.state.ticked[beer.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="beer.abv">5.8</span>
+              </header>
+              <section class="notes" x-text="beer.tastingnotes">A bold, uncompromising beer, packed with hops at 4 different stages in the brewing process. Imperial and Munich malts give the beer enough body to try and tame the hop aromas jumping out of the glass. A classic West Coast IPA boasting intense pine and solid bitterness with residual sweetness and citrus aromas.</section>
+            </div>
+        </section>
+				</div>
+				<!-- end body -->
+				
+				<!-- start footer -->
+				<div id="footer" class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    				<div class="col-md-4 d-flex align-items-center">
+      				<a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+							<img class="bi" src="../images/twylford_beer_festival_logo.png" class="img-fluid"  width="50">
+      				</a>
+      				<span class="mb-3 mb-md-0 text-body-secondary">© 2010 TBF - Twylford Beer Festival</span>
+    				</div>
+
+    				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      				<li class="ms-3"><a class="text-body-secondary" href="https://x.com/TwyfordBeerFest"><img src="../images/x_logo.png" class="bi" width="50"></a></li>
+      				<li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ItsTBF/"><img src="../images/fb_logo.png" class="bi" width="50"></a></li>
+    				</ul>
+  				</div>
+  				<!-- end footer -->
+			</div>
+			<!-- end container -->	
+				
+		</div>
+		<!-- end main -->
+	
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	
+	</body>
+</html>
+

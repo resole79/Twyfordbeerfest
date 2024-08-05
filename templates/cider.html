@@ -1,0 +1,444 @@
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<title>TBF - Twylford Beer Festival</title>
+		<link rel="stylesheet" href="../static/css/bootstrap.css">
+		<link rel="stylesheet" href="../static/css/css.css">
+	</head>
+	
+	<body>
+		<div id="main">
+			<div id="container">
+			
+    			<!-- start navigate -->
+				<div id="navigate" class="navbar navbar-expand-lg border-bottom">
+    				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+    				</button>
+  					<div class="collapse navbar-collapse" id="navbarNav">
+     					<ul class="navbar-nav">
+     						<li class="nav-item">
+					          <a class="nav-link" href="../index.html">Home</a>	
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="./beer.html">Beer</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link active" aria-current="page" href="#">Cider</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="#">Spirits</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="#">Food</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="#">Entertainment</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="#">Sponsors</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="./contact.html">Contact</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="./volunteer.html">Volunteer</a>
+     						</li>
+     						<!--<li class="nav-item">
+        						<a class="nav-link" href="#">Privacy</a>
+     						</li>
+     						<li class="nav-item">
+        						<a class="nav-link" href="./templates/map.html">Map</a>
+     						</li>-->
+
+     					</ul>
+    				</div>
+    			</div>
+    			<!-- finish navigate -->
+    			
+    			<!-- start header -->
+  				<div id="header" class="border-bottom">
+					<div class="row align-items-start">
+					
+						<!-- logo section -->	
+    					<div class="col-lg-3">
+    						<div class="container-lg">
+      						<a href="#">
+        							<img src="../images/twylford_beer_festival_logo.png"  class="img-fluid"  width="250px">
+      						</a>        					
+							</div>
+    					</div>
+						<!-- end logo section -->
+						
+
+    					<div class="col-lg-9">
+							<div class="row">
+							
+								<!-- info & book section -->
+    							<div class="col-lg-8">
+									<p class="fs-1 fw-bold p-1">Twylford Beer Festival 2025</p>
+        							<p class="fs-6 fst-italic p-1">Thur 5th June 6pm - 11pm | Fri 6th June 12pm - 11pm | Sat 7th June 12pm- 10pm</p>
+									<div class="border m-2">        							
+        							<p class="fs-6 fst-italic text-center p-1 bg-body-tertiary border-bottom">Please purchase your tickets here for the Festival </p>
+									<p class="text-center p-1">
+										<a href="#">
+  											<img class="img-fluid" alt="Book now" src="../images/bookNow-black-medium.png">
+										</a>
+									</p>
+									</div>
+ 								</div>
+								<!-- end info & book section -->
+								
+								<!-- maillist section -->
+      						<div class="col-lg-4">
+        							<form class="p-2">
+										<p class="fs-6">Please add your email to our mailing list. </p>
+										<div class="mb-3">
+  											<label for="MailListEmail" class="form-label">Email address</label>
+  											<input type="email" class="form-control" id="MailListEmail" placeholder="name@example.com">
+										</div>
+										<div class="mb-3">
+  											<label for="MailListCompleteName" class="form-label">Complete Name</label>
+  											<input type="text" class="form-control" id="MailListCompleteName" placeholder="J. Doe">
+										</div>
+										<button class="w-100 btn btn-lg btn-outline-primary" type="submit">Send us!</button>
+        							</form>
+      						</div>
+								<!-- end maillist section -->
+
+    						</div>
+						</div>  
+															
+					</div>
+					
+					<div class="border-bottom bg-body-tertiary p-2">
+						<p class="fs-4">The official page of Twylford Beer Festival, organised by Ian Wisdom</p> 
+					</div>
+					
+				</div>
+    			<!-- end header -->
+    			
+    			<!-- start body -->    			
+				<div id="body">
+
+      <template x-for="(ciders, supplier) in cidersBySupplier">
+        <section class="brewery">
+          <h2 x-text="supplier"></h2>
+          <template x-for="cider in ciders">
+            <div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name"></h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`"></span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="cider.abv"></span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes"></section>
+            </div>
+          </template>
+        </section>
+      </template><section class="brewery">
+          <h2 x-text="supplier">Mr Whiteheads</h2>
+          <template x-for="cider in ciders">
+            <div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name"></h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`"></span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="cider.abv"></span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Devils Device</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">8.4</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">Quite Clear and Golden in colour with a full bodied smell, the first taste quickly reveals the nutty, earthy flavours so well associated with the russet apple, which is dominant in this cider. This unique cider is rich and has good deep body, is medi</section>
+            </div><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Equinox</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">4.5</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">Light and easy thirst-quenching drink. Sitting comfortably in the range as a Medium cider, it has both dry and sweet qualities</section>
+            </div><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Hampshire Perry</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">3.8</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">This is the only perry that has any water in, as it is a mixture of a first and 2nd pressing. The 2nd pressing has water added to re-hydrate the fruit, to assist pressing out the remaining colour, juice and flavours, so the water content is no more than 20%. Often a cloudy perry, it has good flavours despite being lower strength. Varieties include Doyenne du Comice, Thorn, Blakeney Red, Conference.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Newtons Discovery</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Dry)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">3.8</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">This red apple is one of the first harvested in the apple season. By re-hydrating the apples for a second pressing we manage to keep the strength down whilst retaining its lovely flavour and colour. The lower strength of this cider ensures that gravity still works to keep you standing up! </section>
+            </div><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Pure Apple Juice</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium sweet)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">0.0</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">Pure Apple Juice. Very refreshing and alcohol free!</section>
+            </div><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Rum Cask</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">7.0</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">A Strong medium cider with a kick.Made with a mixture of apples including Cox &amp; Russet. Another good choice for festivals.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Strawberry</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">This starts life as a light cider of about 3% alcohol. We add fresh strawberries to the fermented drink, allowing them to infuse for a couple of weeks, before lightly pressing the rest of their juice out. The colour from the strawberries gives this special (unique) cider a light pink hue, with a medium to sweet taste.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Toffee Apple Cider</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Sweet)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">Medioum/Sweet/Acidic with candy flavour</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Seven Trees Cider</h2>
+          <template x-for="cider in ciders">
+            <div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name"></h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`"></span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="cider.abv"></span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Reading Press</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">5.6</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">A light, fresh and fruity, eastern counties style cider made from culinary and dessert apples harvested from RG postcodes. Then blended with a small amount of Dabinett, a traditional bittersweet cider apple harvested from Somerset.   Hand picked and pressed in Autumn 2023  Wild fermented. Unfiltered.  Sweetened to medium with sugar. Pastuerised. </section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Tutts Clump</h2>
+          <template x-for="cider in ciders">
+            <div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name"></h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`"></span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="cider.abv"></span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Berkshire Diamond</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">4.5</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">This medium Real Cider is handmade in the heart of the Royal County of Berkshire blended from a variety of fresh hand picked apples. May be enjoyed on any occasion to accompany a meal or on its own.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Jazz</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium dry)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">5.5</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">This medium/dry single variety Real&nbsp;Cider is lovingly crafted&nbsp;in West Berkshire from the&nbsp;finest Kent-grown Jazz apples. It's&nbsp;probably the first ever Cider&nbsp;made from this particular apple! May be enjoyed on any occasion&nbsp;to accompany a meal&nbsp;or on it's own</section>
+            </div><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">No 17</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium dry)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">4.5</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">This Cider is dedicated to Reading Transport’s flagship service Route 17 - referred to as the main line - which dates back to 1901 and is the company’s most frequent and busiest service with a bus every ten minutes. Tim our Chief Cider Maker has driven buses on Route 17 full and part time now for forty plus years - 1983/2024 - and can still be seen most weekends crossing the town in a purple double decker.</section>
+            </div><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Rhubarb</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium dry)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">This medium/sweet Real Cider is lovingly crafted in West Berkshire from a blend of apples before being infused with real rhubarb juice. May be enjoyed on any occasion to accompany a meal or on its own. </section>
+            </div><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Traditional Farmhouse</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium dry)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">6.0</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">This award-winning medium/dry Real Cider is handmade from a variety of eating cooking and crab apples mainly from within West Berkshire. This Crisp refreshing Eastern Counties style Cider may be enjoyed on any occasion to accompany a meal or on its o</section>
+            </div>
+        </section><section class="brewery">
+          <h2 x-text="supplier">Tutts Clump Keg</h2>
+          <template x-for="cider in ciders">
+            <div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name"></h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`"></span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'">
+                </span>
+                <span class="abv" x-text="cider.abv"></span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes"></section>
+            </div>
+          </template><div class="drink">
+              <header class="beer">
+                <h3 class="name" x-text="cider.name">Dark Fruit</h3>
+                <span class="taste" x-text="`(${tasteMap[cider.taste]})`">(Medium sweet)</span>
+                <span class="icon" @click="$store.state.star(cider.id)">
+                  <img :src="$store.state.starred[cider.id] ? '../images/star.svg' : '../images/star-outline.svg'" src="../images/star-outline.svg">
+                </span>
+                <span class="icon" @click="$store.state.tick(cider.id)">
+                  <img :src="$store.state.ticked[cider.id] ? '../images/check-circle.svg' : '../images/check-circle-outline.svg'" src="../images/check-circle-outline.svg">
+                </span>
+                <span class="abv" x-text="cider.abv">4.0</span>
+              </header>
+              <section class="notes" x-text="cider.tastingnotes">This medium/sweet Real Cider is lovingly crafted in West Berkshire from a blend&nbsp;of apples before being infused with real juice from the fruits of the forest. May be enjoyed on any occasion to accompany a meal or on its own. Chilled it is perfect for a warm day!</section>
+            </div>
+        </section>
+				</div>
+				<!-- end body -->
+				
+				<!-- start footer -->
+				<div id="footer" class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    				<div class="col-md-4 d-flex align-items-center">
+      				<a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+							<img class="bi" src="../images/twylford_beer_festival_logo.png" class="img-fluid"  width="50">
+      				</a>
+      				<span class="mb-3 mb-md-0 text-body-secondary">© 2010 TBF - Twylford Beer Festival</span>
+    				</div>
+
+    				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      				<li class="ms-3"><a class="text-body-secondary" href="https://x.com/TwyfordBeerFest"><img src="../images/x_logo.png" class="bi" width="50"></a></li>
+      				<li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ItsTBF/"><img src="../images/fb_logo.png" class="bi" width="50"></a></li>
+    				</ul>
+  				</div>
+  				<!-- end footer -->
+			</div>
+			<!-- end container -->	
+				
+		</div>
+		<!-- end main -->
+	
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	
+	</body>
+</html>
+
