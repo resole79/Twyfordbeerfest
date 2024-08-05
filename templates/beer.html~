@@ -1553,8 +1553,8 @@ Brewed especially for the Festival.</section>
     				</div>
 
     				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-      				<li class="ms-3"><a class="text-body-secondary" href="https://x.com/TwyfordBeerFest"><img src="./images/x_logo.png" class="bi" target="_blank" width="50"></a></li>
-      				<li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ItsTBF/"><img src="./images/fb_logo.png" class="bi" target="_blank" width="50"></a></li>
+      				<li class="ms-3"><a class="text-body-secondary" href="https://x.com/TwyfordBeerFest" target="_blank" ><img src="./images/x_logo.png" class="bi" width="50"></a></li>
+      				<li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ItsTBF/" target="_blank"><img src="./images/fb_logo.png" class="bi" width="50"></a></li>
     				</ul>
   				</div>
   				<!-- end footer -->
@@ -1564,7 +1564,7 @@ Brewed especially for the Festival.</section>
 		</div>
 		<!-- end main -->
 	
-		<script src="./static/js/bootstrap.bundle.min.js"></script>
+		<script src="./static/js/bootstrap.bundle.min.js"></script>	
 	
 	</body>
 </html>
