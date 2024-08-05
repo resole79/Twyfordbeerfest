@@ -302,7 +302,7 @@
 			<tbody><tr>
 				<td>
 					<button class="btn btn-lg btn-outline-primary" type="submit">Save</button>
-					<input type="image" src="../images/submitbutton.png" alt="Submit" onmousedown="this.src='../images/submitbuttonclick.png';" onclick="submitdata()" ;="" onmouseout="this.src='../images/submitbutton.png';">				
+					<!--<input type="image" src="../images/submitbutton.png" alt="Submit" onmousedown="this.src='../images/submitbuttonclick.png';" onclick="submitdata()" ;="" onmouseout="this.src='../images/submitbutton.png';">-->				
 				</td>
 			</tr>
 			<tr>	
