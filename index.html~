@@ -142,8 +142,8 @@
 						<div class="col-lg-4">
 							<p class="fs-3">Welcome to our site!</p>
 							<p class="fs-4">This is our 14th beer festival and each year we have had great
-							<a href="#" class="text-dark text-decoration-underline">beers</a>, 
-							<a href="#" class="text-dark text-decoration-underline">ciders</a>, and 
+							<a href="./templates/beer.html" class="text-dark text-decoration-underline">beers</a>, 
+							<a href="./templates/cider.html" class="text-dark text-decoration-underline">ciders</a>, and 
 							<a href="#" class="text-dark text-decoration-underline">food</a> 
 							for our customers as well as some brilliant 
 							<a href="#" class="text-dark text-decoration-underline">music</a> 
@@ -171,8 +171,8 @@
     				</div>
 
     				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-      				<li class="ms-3"><a class="text-body-secondary" href="https://x.com/TwyfordBeerFest"><img src="./images/x_logo.png" class="bi" target="_blank" width="50"></a></li>
-      				<li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ItsTBF/"><img src="./images/fb_logo.png" class="bi" target="_blank" width="50"></a></li>
+      				<li class="ms-3"><a class="text-body-secondary" href="https://x.com/TwyfordBeerFest" target="_blank" ><img src="./images/x_logo.png" class="bi" width="50"></a></li>
+      				<li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/ItsTBF/" target="_blank"><img src="./images/fb_logo.png" class="bi" width="50"></a></li>
     				</ul>
   				</div>
   				<!-- end footer -->
@@ -182,7 +182,7 @@
 		</div>
 		<!-- end main -->
 	
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+		<script src="./static/js/bootstrap.bundle.min.js"></script>	
 	
 	</body>
 </html>
